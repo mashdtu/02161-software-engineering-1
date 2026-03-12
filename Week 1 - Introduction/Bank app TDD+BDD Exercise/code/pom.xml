@@ -10,6 +10,7 @@
 	<groupId>dtu</groupId>
 	<artifactId>bank-starter</artifactId>
 	<version>1.0.0</version>
+	<packaging>jar</packaging>
 
 	<properties>
 		<!-- Set the Java version used by the compiler. -->

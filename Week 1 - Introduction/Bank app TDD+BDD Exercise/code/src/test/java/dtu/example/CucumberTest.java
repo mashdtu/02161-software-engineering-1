@@ -1,18 +1,23 @@
 package dtu.example;
 
 
-import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
-import static io.cucumber.junit.platform.engine.Constants.SNIPPET_TYPE_PROPERTY_NAME;
+import org.junit.runner.RunWith;
 
-import org.junit.platform.suite.api.ConfigurationParameter;
-import org.junit.platform.suite.api.IncludeEngines;
-import org.junit.platform.suite.api.SelectDirectories;
-import org.junit.platform.suite.api.Suite;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import io.cucumber.junit.CucumberOptions.SnippetType;
 
-@Suite()
-@IncludeEngines("cucumber")
-@SelectDirectories("features")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
-@ConfigurationParameter(key = SNIPPET_TYPE_PROPERTY_NAME, value = "camelcase")
+/* Important: 
+For Cucumber tests to be recognized by Maven, the class name has to have
+either the word Test or Tests in the beginning or at the end. 
+For example, the class name CucumberTestExample will be ignored by Maven.
+*/
+
+@RunWith(Cucumber.class)
+@CucumberOptions(plugin="summary"
+			   , publish= false
+			   , features = "features"  // directory of the feature files
+			   , snippets = SnippetType.CAMELCASE
+			   )
 public class CucumberTest {
 }

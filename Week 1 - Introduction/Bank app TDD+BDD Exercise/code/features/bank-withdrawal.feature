@@ -7,4 +7,3 @@ Feature: Managing Withdrawals in Bank Application
     Given a registered user with an account balance of 1000
     When the user withdraws 200
     Then the account balance should be 800
-
